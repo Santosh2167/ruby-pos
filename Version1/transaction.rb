@@ -16,7 +16,36 @@ class Transaction
 
     def save_transaction(transaction_line)
         puts "saving method"
-        # transaction_line.each {|items| p items }
+        temp_array = [transaction_line[1]]
+        temp_hash = {
+            transaction_line[0] => temp_array
+        }
+
+        ## Build hash for each item
+        counter = 2 
+        item_hash = {}      
+        while counter < transaction_line.length do
+            item_hash["name"] = transaction_line[counter]
+            p "name #{transaction_line[counter]}"
+            item_hash["price"] = transaction_line[counter+1]
+            p "price#{transaction_line[counter+1]}"
+            item_hash["rate"] = transaction_line[counter+2]
+            p "rate#{transaction_line[counter+2]}"
+            item_hash["subtotal"] = transaction_line[counter+3]
+            p "subtotal#{transaction_line[counter+2]}"
+            temp_array.push(item_hash)
+            counter += 4
+            
+            #p temp_hash
+            file = File.open(TRANSACTION_FILE, "w")
+            file.write({transaction_line[0].to_sym => temp_hash}.to_yaml.sub("---",""))
+            file.close
+        end
+        
+        p temp_hash
+        file = File.open(TRANSACTION_FILE, "w")
+        file.write({transaction_line[0].to_sym => temp_hash}.to_yaml.sub("---",""))
+        file.close
     end
 
     def view_transaction(transaction_line)
@@ -28,7 +57,7 @@ class Transaction
         
         counter = 2
         line_counter = 1        
-        while counter<transaction_line.length do
+        while counter < transaction_line.length do
             print "        #{transaction_line[counter]}"
             print "     "
             
