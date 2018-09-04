@@ -1,11 +1,5 @@
 
-:txn04/09/2018 00:38:
-  txn04/09/2018 00:38:
-  - Santosh
-  - &1
-    name: apple
-    price: '5'
-    rate: '20'
-    subtotal: 100
-  - *1
-  - *1
+- item
+- banana
+
+item: {}
