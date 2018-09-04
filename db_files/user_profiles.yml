@@ -2,7 +2,7 @@
   primary_key: user001
   fullname: Alice Zane
   username: azane
-  password: password1
+  password: passworda
   position: cashier
   permission_level: user
   active: true
@@ -11,7 +11,7 @@
   primary_key: user002
   fullname: Bob Adams
   username: badams
-  password: password2
+  password: passwordb
   position: cashier
   permission_level: user
   active: true
@@ -20,7 +20,7 @@
   primary_key: user003
   fullname: Charlie Brown
   username: cbrown
-  password: password3
+  password: passwordc
   position: manager
   permission_level: admin
   active: false
