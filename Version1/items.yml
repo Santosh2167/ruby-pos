@@ -2,30 +2,36 @@
   name: tooth paste
   price: 10
   margin: 2
-  quantity_in_hand: 10
+  quantity_on_hand: 10
   active: true
 
 :tb:
   name: tooth brush
   price: 3
   margin: 0.5
-  quantity_in_hand: 15
+  quantity_on_hand: 15
   active: true
 
 :mw:
   name: mouth wash
   price: 5
-  marign: 1
-  quantity_in_hand: 30
+  margin: 1
+  quantity_on_hand: 30
 
 :tp:
   name: apple
   price: '20'
   margin: '3'
-  quantity_in_hand: '40'
+  quantity_on_hand: '40'
 
 :ba:
   name: banana
   price: '20'
   margin: '3'
-  quantity_in_hand: '40'
+  quantity_on_hand: '40'
+
+:23:
+  name: bottle
+  price: '30'
+  margin: '5'
+  quantity_on_hand: '25'
