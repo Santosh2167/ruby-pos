@@ -1,3 +1,4 @@
+require "io/console"
 require_relative "models/user_profiles"
 
 def login
@@ -22,15 +23,14 @@ def login
     print "Username: "
     username = gets.chomp!
     print "\nPassword: "
-    password = gets.chomp!
+    password = STDIN.noecho(&:gets).chomp
 
-    if users.user_exist?(username) == true && users.password_match?(username, password) == true
+    if users.user_password_match?(username, password) == true
       auth = true
       system("clear")
       p "Success, welcome to Ezeee Pzeee"
     else
       system("clear")
-
       attempt += 1
       p "Incorrect details, please try again"
     end

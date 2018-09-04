@@ -12,14 +12,8 @@ class User
     @users[user_key.to_sym]
   end
 
-  def user_exist?(username)
-    lookup_user_profile(username)["username"] == username
-  rescue
-    false
-  end
-
-  def password_match?(username, password)
-    lookup_user_profile(username)["username"] == username && lookup_user_profile(username)["password"] == password
+  def user_password_match?(username, password)
+    lookup_user_profile(username)["password"] == password
   rescue
     false
   end
@@ -39,12 +33,11 @@ class User
   end
 end
 
-# # TESTS
-# users = User.new
-# users.list_all_users
-# p users.lookup_user_profile # returns a hash of a user
-# p users.user_exist?("azane")
-# p users.password_match?("azane", "password1")
+### TESTS ###
+# user = User.new
+# user.list_all_users
+# p user.lookup_user_profile("azane") # returns a hash of a user details
+# p user.user_password_match?("azane", "passworda")
 
 #   def create_user
 #     file = File.open(USERS_FILE, "a")
