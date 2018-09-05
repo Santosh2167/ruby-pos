@@ -3,16 +3,52 @@
   name: iphone
   price: '20'
   margin: '3'
-  quantity_on_hand: 190
+  quantity_on_hand: 197
+
 :ba:
-  name: banana
+  name: Banana
   price: '3'
-  margin: '3'
-  quantity_on_hand: 90
-:tb:
-  name: tooth brush
+  margin: '1'
+  quantity_on_hand: '100'
+
+:br:
+  name: Bread
   price: '4'
-  margin: '5'
-  quantity_on_hand: 25
-'
-0'
+  margin: '2'
+  quantity_on_hand: '150'
+
+:pe:
+  name: Peanut Butter
+  price: '5'
+  margin: '2'
+  quantity_on_hand: '20'
+
+:ja:
+  name: Jam
+  price: '7'
+  margin: '3'
+  quantity_on_hand: '10'
+
+:gr:
+  name: Grapes
+  price: '5'
+  margin: '1'
+  quantity_on_hand: '30'
+
+:co:
+  name: Coffee
+  price: '12'
+  margin: '4'
+  quantity_on_hand: '25'
+
+:tb:
+  name: Tooth Brush
+  price: '4'
+  margin: '1'
+  quantity_on_hand: '25'
+
+:mw:
+  name: Mouth Wash
+  price: '9'
+  margin: '3'
+  quantity_on_hand: '10'
