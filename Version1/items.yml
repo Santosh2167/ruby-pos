@@ -20,18 +20,18 @@
 
 :ap:
   name: apple
-  price: '20'
-  margin: '3'
-  quantity_on_hand: '40'
+  price: 20
+  margin: 3
+  quantity_on_hand: 40
 
 :ba:
   name: banana
-  price: '20'
-  margin: '3'
-  quantity_on_hand: '40'
+  price: 20
+  margin: 3
+  quantity_on_hand: 40
 
-:23:
-  name: bottle
-  price: '30'
-  margin: '5'
-  quantity_on_hand: '25'
+:wb:
+  name: water bottle
+  price: 30
+  margin: 5
+  quantity_on_hand: 25

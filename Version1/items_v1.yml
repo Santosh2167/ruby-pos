@@ -17,7 +17,8 @@
   price: 5
   marign: 1
   quantity_in_hand: 30
-:tp:
+
+:ap:
   name: apple
   price: '20'
   margin: '3'

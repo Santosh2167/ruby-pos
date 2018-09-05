@@ -10,33 +10,41 @@ class Transaction
         @transactions ||= YAML.load(File.read(TRANSACTION_FILE))
         @items ||= YAML.load(File.read(ITEM_FILE))
         datetime = DateTime.now
-        @date_time = datetime.strftime("%d/%m/%Y%H:%M")
+        @date_time = datetime.strftime("%d/%m/%Y %H:%M")
         @user = user
     end
 
     def save_transaction(transaction_line)
         puts "saving method"
-        items_array = [transaction_line[1]]
-        txn_hash = {
-            transaction_line[0] => items_array
+        temp_array = [transaction_line[1]]
+        temp_hash = {
+            transaction_line[0] => temp_array
         }
-        ## Build hash for each item before pushing into txn_hash
+
+        ## Build hash for each item
         counter = 2 
+        item_hash = {}      
         while counter < transaction_line.length do
-            item_hash = {} 
             item_hash["name"] = transaction_line[counter]
             p "name #{transaction_line[counter]}"
-            item_hash["quantity"] = transaction_line[counter+1]
+            item_hash["price"] = transaction_line[counter+1]
             p "price#{transaction_line[counter+1]}"
             item_hash["rate"] = transaction_line[counter+2]
             p "rate#{transaction_line[counter+2]}"
             item_hash["subtotal"] = transaction_line[counter+3]
             p "subtotal#{transaction_line[counter+2]}"
-            items_array.push(item_hash)
+            temp_array.push(item_hash)
             counter += 4
+            
+            #p temp_hash
+            file = File.open(TRANSACTION_FILE, "w")
+            file.write({transaction_line[0].to_sym => temp_hash}.to_yaml.sub("---",""))
+            file.close
         end
-        file = File.open(TRANSACTION_FILE, "a")
-        file.write(txn_hash.to_yaml.sub("---",""))
+        
+        p temp_hash
+        file = File.open(TRANSACTION_FILE, "w")
+        file.write({transaction_line[0].to_sym => temp_hash}.to_yaml.sub("---",""))
         file.close
     end
 
@@ -134,52 +142,8 @@ class Transaction
 
     end
 
-    def list_all_transaction
-         system("clear")
-        #  puts @transactions
-        puts "Transaction summary: \n\n"
-		 @transactions.each do |key,i|
-              puts "Transaction ID: #{key}"
-              puts "User Name:#{i[0]}"
-              puts ""
-              counter = 1  
-              while counter < i.length do
-		 	  puts "Item Name: #{i[counter]["name"]}"
-              puts "Item Quantity: #{i[counter]["quantity"]}"
-              puts "Item Rate: #{i[counter]["rate"]}"            
-              puts "Item Subtotal: #{i[counter]["subtotal"]}"
-		      counter +=1
-              puts "--"
-            end
-            puts "==================="
-         end 
-    end
-
-    def lookup_transaction
-        system("clear")
-        puts "Please enter Transaction ID:"
-        transaction_id = gets.chomp
-        data_array = @transactions[transaction_id]
-        
-        puts "\nUser Name: #{data_array[0]}"
-        puts ""
-        counter = 1  
-        while counter < data_array.length do
-        puts "Item Name: #{data_array[counter]["name"]}"
-        puts "Item Quantity: #{data_array[counter]["quantity"]}"
-        puts "Item Rate: #{data_array[counter]["rate"]}"
-        puts "Item Subtotal: #{data_array[counter]["subtotal"]}"
-        counter +=1
-        puts "--"
-        end
-    end
-
 end
-
-
 
 txn = Transaction.new("Santosh")
 
-# txn.list_all_transaction
-# txn.record_transactions
-txn.lookup_transaction
+txn.record_transactions
