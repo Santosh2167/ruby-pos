@@ -1,8 +1,8 @@
-:azane: 
+:admin: 
   primary_key: user001
   fullname: Alice Zane
   username: azane
-  password: passworda
+  password: pass
   position: cashier
   permission_level: user
   active: true

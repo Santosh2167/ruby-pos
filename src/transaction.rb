@@ -15,7 +15,9 @@ class Transaction
         @user = user
     end
 
-    def save_transaction(transaction_line)
+
+    ####This function to write data in the file
+    def save_transaction(transaction_line,adjust_inventory_array)
         
         items_array = [transaction_line[1]]
         txn_hash = {
@@ -35,17 +37,43 @@ class Transaction
             items_array.push(item_hash)
             counter += 4
         end
+        
         file = File.open(TRANSACTION_FILE, "a")
         file.write(txn_hash.to_yaml.sub("---",""))
         file.close
+        
+        adjust_inventory(adjust_inventory_array)
     end
 
-    def view_transaction(transaction_line)
+    ####this method to adjust item number once user saves the transaction 
+    def adjust_inventory(inventory_array)
+        counter =0
+
+        while counter < inventory_array.length do
+        item_key = inventory_array[counter]
+        quantity_sold = inventory_array[counter+1]
+        quantity_on_hand = @items[item_key.to_sym]["quantity_on_hand"]
+
+        item = @items[inventory_array[counter].to_sym]
+        item["quantity_on_hand"] = quantity_on_hand.to_i - quantity_sold.to_i
+        File.open(ITEM_FILE, "w").write(@items.to_yaml)
+        # File.close
+
+            
+            counter += 2
+        end
+
+
+    end
+
+
+    #####This function is to view data in the tabular form
+    def view_transaction(transaction_line,adjust_inventory_array)
         system("clear")
         puts "Transaction ID: #{transaction_line[0]}"
         puts "Entered by: #{transaction_line[1]}"
         p "Summary of Transaction:"
-        p "       Item Name:       Quantity:       Rate:             Total:"
+        p "       Item Name:       Quantity:       Rate($):             Total($):"
         
         counter = 2
         line_counter = 1        
@@ -63,18 +91,23 @@ class Transaction
         puts "\n\n"
         puts "Would you like to save this transaction? (y/n)"
         option = gets.chomp.downcase
-        if option == "y"
-            save_transaction(transaction_line)
+
+        if option == "y"  
+            save_transaction(transaction_line,adjust_inventory_array)
+            
         else
             transaction_line = []
         end
+
     end
 
+    ##this function picks up what user has typed in the screen, does not save data
     def record_transactions(username)
         system("clear")
         puts "Welcome, you can add new transaction below."
         transaction_id = "txn"+@date_time
         transaction_line = []
+        adjust_inventory_array =[]
         check = true
 
         puts "*************"
@@ -91,14 +124,19 @@ class Transaction
 
         item_count = 1
         while check == true do
-		    puts "Enter #{item_count} Item ID."
+		    puts "Enter #{item_count} Item ID. Enter 111 to go to the main menu."
             item_key = gets.chomp
+            
+            
             if item_key.to_i == 111    
                 # p transaction_line.inspect
-                view_transaction(transaction_line)
+                view_transaction(transaction_line,adjust_inventory_array)
                 system("clear")
                 break
             end
+
+            adjust_inventory_array << item_key
+
             puts "\nItem Name: #{@items[item_key.to_sym]["name"]}"
             get_item = @items[item_key.to_sym]["name"]
             transaction_line << @items[item_key.to_sym]["name"]
@@ -112,10 +150,11 @@ class Transaction
                 get_quantity = gets.chomp
                 
                 if get_quantity.to_i >= @items[item_key.to_sym]["quantity_on_hand"].to_i
-                     puts "Not enough quantity. Quantity on hand for #{get_item} is #{@items[item_key.to_sym]["quantity_on_hand"]}"
+                    puts "Not enough quantity. Quantity on hand for #{get_item} is #{@items[item_key.to_sym]["quantity_on_hand"]}"
                 else
                     check_quantity = false
                     transaction_line << get_quantity
+                    adjust_inventory_array << get_quantity
                     transaction_line << @items[item_key.to_sym]["price"]
                     transaction_line << (@items[item_key.to_sym]["price"].to_i * get_quantity.to_i)
                     # break
@@ -126,19 +165,19 @@ class Transaction
 
             check = true
             item_count +=1
-         end
-         puts ""
-         puts "Enter 111 to return to the main menu.\n"
-         puts "Would you like to process for another customer? (y/n) "
-         another_txn = gets.chomp
+        end
+        puts ""
+        puts "Enter 111 to return to the main menu.\n"
+        puts "Would you like to process for another customer? (y/n) "
+        another_txn = gets.chomp
 
-         if another_txn.downcase == "y"
+        if another_txn.downcase == "y"
             record_transactions(@user)
-         else
+        else
+            system("clear")
             option_list(@user)
-         end
+        end
 
-    
     end
 
     def list_all_transaction
