@@ -14,6 +14,10 @@ To develop a functioning Point of Sales software that allows users to perform PO
 4. Reporting - Software presents 2 key reports in the first version 
                1. View all items in the database
                2. View all transactions
+               
+<p align="center">
+  <img src="https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/Flow_Chart-Get_Me_Money.jpg" alt="screenshot of the app's flow chart"/>
+</p>
 
 #### Instruction for use: 
 1. Run the software
@@ -23,7 +27,7 @@ To develop a functioning Point of Sales software that allows users to perform PO
 3. Once you get username and password right, you are presented with a list of menu. Please enter number to make your selection. For example: Enter 2 to lookup an item
 
 <p align="center">
-![Screenshot of Menu Options](https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/menu_options_screenshot.png)
+  <img src="https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/menu_options_screenshot.png" alt="screenshot of menu options"/>
 </p>
 
 #### Menu Options  
@@ -117,6 +121,9 @@ You can search an item by putting the item code
 
 * Full User Stories planning @ https://trello.com/b/CaJG38zd/get-me-the-money-pos-mvp
 
+<p align="center">
+  <img src="https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/trello_user_stories_screenshot.png" alt="trello board used for planning"/>
+</p>
 
 ### Future Features:
 
