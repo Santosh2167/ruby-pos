@@ -85,6 +85,41 @@ class Item
 
 	end
 
+	def edit_item
+		puts "Welcome, this section helps you to edit the existing items by entering product ID. If you are not sure of the product ID then visit Report > List All Items."
+		puts ""
+		puts "Enter ID of the product you want to edit:"
+		item_id = gets.chomp
+
+		puts ""
+		puts "Please type the field you want to modify. Fields are name, price, rate, quantity_on_hand"
+		puts "please make sure you get the spelling correct for the field you enter!!!"
+		field = gets.chomp
+
+		puts ""
+		puts "Please enter new value for the field typed."
+		new_value = gets.chomp
+
+		item = @items[item_id.to_sym]
+		item[field.to_s] = new_value
+		File.open(ITEMS_FILE, "w").write(@items.to_yaml)
+
+		puts "Item modified!!!"
+		puts ""
+
+		puts "Do you want to modify another item?(y/n)"
+		check_option = gets.chomp
+
+		if check_option.downcase == "y"
+			system("clear")
+			edit_item
+		else
+			system("clear")
+			option_list(@user)
+		end
+			
+	end
+
 end
 
 

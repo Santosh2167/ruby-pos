@@ -22,7 +22,7 @@ def login(username, password)
     if users.user_password_match?(username, password) == true
       auth = true
       system("clear")
-      p "Success, welcome to Ezeee Pzeee #{username}"
+      p "Success, welcome to GET ME THE MONEY POS #{username}"
       username
     else
       system("clear")
@@ -39,7 +39,7 @@ get_option = 0
 
 puts "Please choose one of the following options to proceed !!!"
 puts ""
-puts "Items >> 1. Add Item  2. Search an Item by code \n"
+puts "Items >> 1. Add Item  2. Search an Item by code 10. Edit Item*\n"
 puts ""
 puts "Transactions >> 3. Record new POS transaction  4. Search Transaction by transaction ID\n"
 puts ""
@@ -107,6 +107,11 @@ when get_option = 9 # exit
   system("clear")
   puts ""
   puts "See you next time!"
+when get_option = 10 #edit items
+  system("clear")
+  item = Item.new(username)
+  item.edit_item
+
 else
   system("clear")
   puts "Invalid Selection try again!!!"
