@@ -3,8 +3,8 @@
   fullname: Alice Zane
   username: azane
   password: pass
-  position: cashier
-  permission_level: user
+  position: manager
+  permission_level: admin
   active: true
 
 :badams: 
@@ -21,6 +21,6 @@
   fullname: Charlie Brown
   username: cbrown
   password: passwordc
-  position: manager
-  permission_level: admin
+  position: cashier
+  permission_level: user
   active: false
