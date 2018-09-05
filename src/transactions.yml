@@ -61,3 +61,20 @@ txn04/09/201822:41:
 
 txn04/09/201823:03:
 - azane
+
+txn04/09/201823:44:
+- azane
+
+txn04/09/201823:50:
+- azane
+- name: banana
+  quantity: '4'
+  rate: 20
+  subtotal: 80
+
+txn04/09/201823:51:
+- azane
+- name: banana
+  quantity: '3'
+  rate: 20
+  subtotal: 60

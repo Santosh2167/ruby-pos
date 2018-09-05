@@ -1,4 +1,3 @@
-require "io/console"
 require_relative "user_profiles"
 require_relative "transaction"
 require_relative "items"
@@ -10,6 +9,7 @@ def login(username, password)
   max_attempt = 4
 
   while auth == false
+    
     if attempt < max_attempt
       if attempt > 1
         p "Attempt #{attempt} - #{max_attempt - attempt} attempts remaining!"

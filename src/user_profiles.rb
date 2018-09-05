@@ -2,7 +2,7 @@ require "yaml"
 
 class User
   attr_reader :users
-  USERS_FILE = "./user_profiles.yml"
+  USERS_FILE = "user_profiles.yml"
 
   def initialize
     @users ||= YAML.load(File.read(USERS_FILE))

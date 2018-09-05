@@ -130,6 +130,14 @@ class Transaction
          puts ""
          puts "Enter 111 to return to the main menu.\n"
          puts "Would you like to process for another customer? (y/n) "
+         another_txn = gets.chomp
+
+         if another_txn.downcase == "y"
+            record_transactions(@user)
+         else
+            option_list(@user)
+         end
+
     
     end
 

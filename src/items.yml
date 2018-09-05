@@ -95,3 +95,15 @@
   price: '23'
   margin: '4'
   quantity_on_hand: '100'
+
+:ca:
+  name: cable
+  price: '30'
+  margin: '2'
+  quantity_on_hand: '20'
+
+:111:
+  name: '111'
+  price: '111'
+  margin: '111'
+  quantity_on_hand: '111'
