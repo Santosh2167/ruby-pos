@@ -37,4 +37,5 @@ end
 # user = User.new
 # user.list_all_users
 # p user.lookup_user_profile("azane") # returns a hash of a user details
-# p user.user_password_match?("azane", "passworda")
+# p user.lookup_user_profile("azane")["fullname"]
+# p user.user_password_match?("azane", "passworda"

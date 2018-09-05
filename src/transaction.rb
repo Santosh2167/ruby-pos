@@ -147,7 +147,7 @@ class Transaction
         puts "Transaction summary: \n\n"
 		 @transactions.each do |key,i|
               puts "Transaction ID: #{key}"
-              puts "User Name:#{i[0]}"
+              puts "User Name: #{i[0]}"
               puts ""
               counter = 1  
               while counter < i.length do

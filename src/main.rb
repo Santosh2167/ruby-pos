@@ -13,8 +13,4 @@ print "Username: "
 username = gets.chomp!
 print "\nPassword: "
 password = STDIN.noecho(&:gets).chomp
-puts "till here"
 login(username, password)
-
-option_list(username)
-
