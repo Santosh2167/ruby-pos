@@ -41,8 +41,11 @@ def option_list(username)
   sleep(0.5)
   rows = []
   rows << ["Item Database", "1\n2", "Add Item\nSearch an Item by code"]
+  rows << :separator
   rows << ["Transaction", "3\n4", "Record new POS transactions\nSearch Transaction by transaction ID"]
+  rows << :separator
   rows << ["Reports", "5\n6", "List all Items\nView all transaction"]
+  rows << :separator
   rows << ["System", "7\n8\n9", "Update User Profiles\nAbout Developers\nExit System"]
   table = Terminal::Table.new :title => "GET ME THE MONEY!!! POS System", :headings => ["Categories", "Options", "Functions"], :rows => rows, :style => {:width => 80, :padding_left => 3, :border_x => "="}
   puts table
