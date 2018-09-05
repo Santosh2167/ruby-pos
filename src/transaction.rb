@@ -44,20 +44,20 @@ class Transaction
 
   ####this method to adjust item number once user saves the transaction
   def adjust_inventory(inventory_array)
-    counter = 0
+    # counter = 0
 
-    while counter < inventory_array.length
-      item_key = inventory_array[counter]
-      quantity_sold = inventory_array[counter + 1]
-      quantity_on_hand = @items[item_key.to_sym]["quantity_on_hand"]
+    # while counter < inventory_array.length
+    #   item_key = inventory_array[counter]
+    #   quantity_sold = inventory_array[counter + 1]
+    #   quantity_on_hand = @items[item_key.to_sym]["quantity_on_hand"]
 
-      item = @items[inventory_array[counter].to_sym]
-      item["quantity_on_hand"] = quantity_on_hand.to_i - quantity_sold.to_i
-      File.open(ITEM_FILE, "w").write(@items.to_yaml)
-      # File.close
+    #   item = @items[inventory_array[counter].to_sym]
+    #   item["quantity_on_hand"] = quantity_on_hand.to_i - quantity_sold.to_i
+    #   File.open(ITEM_FILE, "w").write(@items.to_yaml)
+    #   # File.close
 
-      counter += 2
-    end
+    #   counter += 2
+    # end
   end
 
   #####This function is to view data in the tabular form
@@ -115,7 +115,7 @@ class Transaction
 
     item_count = 1
     while check == true
-      puts "Enter #{item_count} Item ID. Enter 111 to go to the main menu."
+      puts "Enter #{item_count} Item ID. Enter 111 to finish this transactin and go to the main menu."
       item_key = gets.chomp
 
       if item_key.to_i == 111
