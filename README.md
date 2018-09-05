@@ -23,6 +23,7 @@ To develop a functioning Point of Sales software that allows users to perform PO
 3. Once you get username and password right, you are presented with a list of menu. Please enter number to make your selection. For example: Enter 2 to lookup an item
 
 #### Menu Options  
+
 1. Adding an Item to the Database:
     1. Get the following information ready on a item you are about to enter
         - Item code
