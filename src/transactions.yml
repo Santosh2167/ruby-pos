@@ -29,3 +29,35 @@ txn04/09/201819:03:
   quantity: '5'
   rate: 3
   subtotal: 15
+
+txn04/09/201822:14:
+- azane
+- name: iphone
+  quantity: '1'
+  rate: '100'
+  subtotal: 100
+
+txn04/09/201822:30:
+- badams
+- name: coffee
+  quantity: '3'
+  rate: '10'
+  subtotal: 30
+- name: Theo's glass
+  quantity: '1'
+  rate: '100'
+  subtotal: 100
+
+txn04/09/201822:41:
+- badams
+- name: beer
+  quantity: '6'
+  rate: '3'
+  subtotal: 18
+- name: coffee
+  quantity: '12'
+  rate: '10'
+  subtotal: 120
+
+txn04/09/201823:03:
+- azane

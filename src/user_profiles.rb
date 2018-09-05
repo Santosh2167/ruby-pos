@@ -2,7 +2,7 @@ require "yaml"
 
 class User
   attr_reader :users
-  USERS_FILE = "./db_files/user_profiles.yml"
+  USERS_FILE = "./user_profiles.yml"
 
   def initialize
     @users ||= YAML.load(File.read(USERS_FILE))
@@ -38,9 +38,3 @@ end
 # user.list_all_users
 # p user.lookup_user_profile("azane") # returns a hash of a user details
 # p user.user_password_match?("azane", "passworda")
-
-#   def create_user
-#     file = File.open(USERS_FILE, "a")
-#     file.write({primary_key.to_sym => user}.to_yaml.sub("---", ""))
-#     file.close
-#   end

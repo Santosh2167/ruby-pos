@@ -1,5 +1,6 @@
 require "yaml"
 require "date"
+require_relative "helper_methods.rb"
 
 class Transaction
     
@@ -15,23 +16,22 @@ class Transaction
     end
 
     def save_transaction(transaction_line)
-        puts "saving method"
+        
         items_array = [transaction_line[1]]
         txn_hash = {
             transaction_line[0] => items_array
         }
-        ## Build hash for each item before pushing into txn_hash
+        
         counter = 2 
         while counter < transaction_line.length do
             item_hash = {} 
             item_hash["name"] = transaction_line[counter]
-            p "name #{transaction_line[counter]}"
+            
             item_hash["quantity"] = transaction_line[counter+1]
-            p "price#{transaction_line[counter+1]}"
+            
             item_hash["rate"] = transaction_line[counter+2]
-            p "rate#{transaction_line[counter+2]}"
+            
             item_hash["subtotal"] = transaction_line[counter+3]
-            p "subtotal#{transaction_line[counter+2]}"
             items_array.push(item_hash)
             counter += 4
         end
@@ -70,8 +70,9 @@ class Transaction
         end
     end
 
-    def record_transactions
+    def record_transactions(username)
         system("clear")
+        puts "Welcome, you can add new transaction below."
         transaction_id = "txn"+@date_time
         transaction_line = []
         check = true
@@ -80,20 +81,22 @@ class Transaction
         puts "Date and Time: #{@date_time}"
         puts "User: #{@user}"
         puts "transaction ID: #{transaction_id}"
-        puts "\n\nPlease enter transaction detail.\n\n"
-        transaction_line << transaction_id
-        transaction_line << "Santosh"
-
-        item_count = 1
-        print "Press F1 to get Item list with Item ID and quantity in hand. Press Esc to exit.\n"
+        puts "\n\nPlease enter transaction detail.\n"
+        #puts Press F1 to get Item list with Item ID and quantity in hand. 
+        print "Enter 111 to return to the main menu.\n"
         puts ""
          
+        transaction_line << transaction_id
+        transaction_line << username
+
+        item_count = 1
         while check == true do
 		    puts "Enter #{item_count} Item ID."
             item_key = gets.chomp
-            if item_key.to_i == 200    
+            if item_key.to_i == 111    
                 # p transaction_line.inspect
                 view_transaction(transaction_line)
+                system("clear")
                 break
             end
             puts "\nItem Name: #{@items[item_key.to_sym]["name"]}"
@@ -124,14 +127,10 @@ class Transaction
             check = true
             item_count +=1
          end
-
-
-        #puts "Item Name: #{@items[item_key.to_sym]["name"]}"
-
-		# puts "Enter the quantity: "
-		# item["name"] = gets.chomp
-        
-
+         puts ""
+         puts "Enter 111 to return to the main menu.\n"
+         puts "Would you like to process for another customer? (y/n) "
+    
     end
 
     def list_all_transaction
@@ -178,8 +177,7 @@ end
 
 
 
-txn = Transaction.new("Santosh")
-
+# txn = Transaction.new("Santosh")
 # txn.list_all_transaction
 # txn.record_transactions
-txn.lookup_transaction
+# txn.lookup_transaction

@@ -1,16 +1,18 @@
 require 'yaml'
+require_relative "helper_methods"
 
 class Item
 	ITEMS_FILE = "items.yml"
 	
-	def initialize 
+	def initialize(username) 
 		@items ||= YAML.load(File.read(ITEMS_FILE))
+		@username = username
 	end
 	#***********
 	#this method adds items to the file
 	#***********
 	def add_item 
-		
+		system("clear")
 		puts "Welcome, you can add new item below."
 		item_key = ""
 		item = {}
@@ -33,7 +35,18 @@ class Item
 	
 		file = File.open(ITEMS_FILE, "a")
         file.write({item_key.to_sym => item}.to_yaml.sub("---",""))
-        file.close
+		file.close
+		
+		puts "Would you like to add another product? (y/n)"
+		option = gets.chomp
+		
+		if option.downcase =="y"
+			add_item
+		else
+			system("clear")
+			option_list(@username)
+		end
+
 	
 	end
 
@@ -41,8 +54,9 @@ class Item
 	#this method looks up items on the file and present to the user
 	#***********
 
-	def look_up_items
-		puts "Please enter item key: "
+	def look_up_item
+		puts "Welcome, this section helps you to search item by its code. If you do not know the code, please go to Report > View All Items section."
+		puts "Please enter item ID for the item you want to search: "
 		item_key = gets.chomp
 		puts "************************"
 		puts "\nFollowing is the item detail:\n"
@@ -75,63 +89,3 @@ end
 
 
 
-clear_screen = %x{clear}
-puts clear_screen
-puts "lets Start"
-item = Item.new
-puts "calling the add_item"
-item.look_up_items
-
-
-# class Item
-# 	ITEMS_FILE = "items.yml"
-
-# 	def initialize
-# 		@items ||= YAML.load(File.read(ITEMS_FILE))
-# 	end
-
-# 	def create_item
-# 		item_key = ""
-# 		item = {}
-
-# 		p "Enter Product Key"
-# 		item_key = gets.chomp
-		
-# 		p "Enter Product name"
-# 		item["name"] = gets.chomp
-		
-# 		p "Enter Product price"
-# 		item["price"] = gets.chomp
-		
-# 		p "Enter Product margin"
-# 		item["margin"] = gets.chomp
-		
-# 		p "Enter Product quantity_in_hand"
-# 		item["quantity_in_hand"] = gets.chomp
-
-# 		file = File.open(ITEMS_FILE, "a")
-# 		file.write({item_key.to_sym => item}.to_yaml.sub("---",""))
-# 		file.close
-# 	end
-
-# 	def look_item(item_key)
-# 		@items[item_key.to_sym]
-# 	end
-
-# 	def list_all_items
-# 		@items.each do |key,i|
-# 			p key
-# 			p i["name"]
-# 			p i["price"]
-# 			p i["margin"]
-# 			p i["quantity_in_hand"]
-# 			p ""
-# 		end
-# 	end
-
-# end
-
-# i = Item.new
-# i.list_all_items
-# i.look_item("tp")
-# i.create_item
