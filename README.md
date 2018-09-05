@@ -28,7 +28,7 @@ NB: please open yml file when running the software to see changes in the data
 
 1. Run the software
 
-2. Enter your username and password. Both username and password must match the database to proceed further. You have 3 attempts to get your username and password to authenticate
+2. Enter your username and password. Both username and password must match the database to proceed further. You have 3 attempts to get your username and password to authenticate. (username: admin, password: pass)
 
 3. Once you get username and password right, you are presented with a list of menu. Please enter number to make your selection. For example: Enter 2 to lookup an item
 
@@ -89,6 +89,7 @@ You can search an item by putting the item code
 #### Gems:
 * Data Parsing: yaml
 * Terminal: io/console
+* Presentation: terminal-table
 
 
 #### Testing:
@@ -96,7 +97,7 @@ You can search an item by putting the item code
 
 
 #### Collaboration Tools:
-* In-person paired programming
+* In-person paired programming / Slack
 * Github for version control (fork, branching, pulling, merging)
 * Trello for planning
 
