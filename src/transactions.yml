@@ -1,0 +1,31 @@
+
+
+txn04/09/201819:00:
+- Santosh
+- name: water bottle
+  quantity: '3'
+  rate: 30
+  subtotal: 90
+- name: banana
+  quantity: '5'
+  rate: 20
+  subtotal: 100
+- name: mouth wash
+  quantity: '10'
+  rate: 5
+  subtotal: 50
+
+txn04/09/201819:03:
+- Theo
+- name: banana
+  quantity: mw
+  rate: 20
+  subtotal: 0
+- name: water bottle
+  quantity: '4'
+  rate: 30
+  subtotal: 120
+- name: tooth brush
+  quantity: '5'
+  rate: 3
+  subtotal: 15
