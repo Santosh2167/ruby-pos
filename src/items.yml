@@ -3,4 +3,16 @@
   name: iphone
   price: '20'
   margin: '3'
-  quantity_on_hand: 197
+  quantity_on_hand: 190
+:ba:
+  name: banana
+  price: '3'
+  margin: '3'
+  quantity_on_hand: 90
+:tb:
+  name: tooth brush
+  price: '4'
+  margin: '5'
+  quantity_on_hand: 25
+'
+0'

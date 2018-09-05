@@ -125,6 +125,12 @@ You can search an item by putting the item code
   <img src="https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/trello_user_stories_screenshot.png" alt="trello board used for planning"/>
 </p>
 
+###Fix me section
+Presently when user processes the transaction, the system updates the inventory in hand from item table and data is up to date. But when updating the Item file, the system adds couple of cahracters at the end and the file gets busy. This needs to be fixed. This has been commented in the source code to make the system work.  
+
+####System limitation 
+We have not validated the data due to time constrain. For example user can enter alphabets in quantity field, system does not check for duplicate Item ID when recording the new item are two limitations 
+
 ### Future Features:
 
 ####  App Features:

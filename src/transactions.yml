@@ -86,3 +86,18 @@ txn05/09/201805:55:
   quantity: '3'
   rate: '20'
   subtotal: 60
+
+txn05/09/201806:01:
+- admin
+- name: iphone
+  quantity: '7'
+  rate: '20'
+  subtotal: 140
+- name: banana
+  quantity: '10'
+  rate: '3'
+  subtotal: 30
+- name: tooth brush
+  quantity: '5'
+  rate: '4'
+  subtotal: 20
