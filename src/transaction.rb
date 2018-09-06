@@ -115,7 +115,7 @@ class Transaction
 
     item_count = 1
     while check == true
-      puts "Enter #{item_count} Item ID. Enter 111 to finish this transactin and go to the main menu."
+      puts "Enter #{item_count} Item ID. Enter 111 to finish this transaction and go to the main menu."
       item_key = gets.chomp
 
       if item_key.to_i == 111
@@ -165,7 +165,6 @@ class Transaction
       record_transactions(@user)
     else
       system("clear")
-      option_list(@user)
     end
   end
 
