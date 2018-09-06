@@ -2,7 +2,7 @@
 User friendly, light weight, and offline POS for small businesses with reporting and on the fly data entry. 
 
 ### Purpose of the Project 
-To develop a functioning Point of Sales software that allows users to perform POS duties well. This is the first version of the "Get Me The Money POS System" built with the core features in mind.
+To develop a functioning Point of Sales software that allows users to record POS transactions. This is the first version of the "Get Me The Money POS System" built with the core features in mind.
 
 #### Functionality of the Software 
 1. Password protected - User has to key an authorized username and password to log in. After 3 failed attempts, the system shuts down.
@@ -19,7 +19,13 @@ To develop a functioning Point of Sales software that allows users to perform PO
   <img src="https://github.com/TheodoreChuang/ruby-pos/blob/master/docs/Flow_Chart-Get_Me_Money.jpg" alt="screenshot of the app's flow chart"/>
 </p>
 
+### System Password
+UserName: admin
+password: pass
+
 #### Instruction for use: 
+NB: please open yml file when running the software to see changes in the data
+
 1. Run the software
 
 2. Enter your username and password. Both username and password must match the database to proceed further. You have 3 attempts to get your username and password to authenticate. (username: admin, password: pass)

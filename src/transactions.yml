@@ -101,3 +101,21 @@ txn05/09/201806:01:
   quantity: '5'
   rate: '4'
   subtotal: 20
+
+txn05/09/201816:19:
+- admin
+- name: Banana
+  quantity: '3'
+  rate: '3'
+  subtotal: 9
+- name: Grapes
+  quantity: '5'
+  rate: '5'
+  subtotal: 25
+
+txn05/09/201816:24:
+- admin
+- name: Banana
+  quantity: '5'
+  rate: '3'
+  subtotal: 15
