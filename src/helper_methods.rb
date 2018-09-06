@@ -59,7 +59,6 @@ def option_list(username)
     puts ""
     item = Item.new(username)
     item.add_item
-    puts "puts"
     option_list(username)
   when get_option = 2 # search item by code
     system("clear")
